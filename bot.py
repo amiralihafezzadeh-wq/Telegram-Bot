@@ -11,6 +11,12 @@ import json
 import os
 
 users = {}
+from supabase import create_client
+
+SUPABASE_URL = "اینجا URL سوپابیس"
+SUPABASE_KEY = "اینجا کلید anon"
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
