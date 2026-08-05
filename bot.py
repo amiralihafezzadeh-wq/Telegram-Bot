@@ -82,10 +82,14 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
 import asyncio
 
+import asyncio
+
 async def main():
     await app.initialize()
     await app.start()
     await app.updater.start_polling()
-    await app.updater.idle()
+
+    while True:
+        await asyncio.sleep(10)
 
 asyncio.run(main())
