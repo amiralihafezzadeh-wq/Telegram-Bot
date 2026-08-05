@@ -80,4 +80,12 @@ app = Application.builder().token("8958860652:AAHAaWtbsnTIx_nmT6asLH5Eordz2lJ1Cy
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-app.run_polling()
+import asyncio
+
+async def main():
+    await app.initialize()
+    await app.start()
+    await app.updater.start_polling()
+    await app.updater.idle()
+
+asyncio.run(main())
